@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sales-drop';
+  public isDarkTheme: boolean = true;
+
+  public changeTheme = () => {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
 }
