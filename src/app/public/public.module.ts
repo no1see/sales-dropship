@@ -9,6 +9,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import * as ngCommon from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { PublicComponent } from './public.component';
+import { AboutComponent } from './about/about.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 
 
@@ -18,7 +22,11 @@ import { PublicComponent } from './public.component';
     HeaderComponent,
     SidebarComponent,
     HomeComponent,
-    ProductsComponent
+    ProductsComponent,
+    AboutComponent,
+    ShoppingCartComponent,
+    CategoriesComponent,
+    CategoryDetailComponent
   ],
   imports: [
     ngCommon.CommonModule,
