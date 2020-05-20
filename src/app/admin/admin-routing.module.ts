@@ -13,7 +13,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'categories', component: CategoriesComponent},
       { path: 'goods', component: GoodsComponent },
-      { path: '', redirectTo: '/admin/login', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
     ]
   }
 ];

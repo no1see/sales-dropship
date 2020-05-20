@@ -1,0 +1,13 @@
+<app-layout [class.my-alternate-theme]="!isDarkTheme">
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+            <app-admin-sidebar (sidenavClose)="sidenav.close()" (themeChanged)="changeTheme()"></app-admin-sidebar>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-admin-header (sidenavToggle)="sidenav.toggle()" (themeChanged)="changeTheme()"></app-admin-header>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</app-layout>

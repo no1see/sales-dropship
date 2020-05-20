@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "sales-drop"
+  "defaultProject": "sales-drop",
+  "cli": {
+    "analytics": "e9cc50d4-d57e-493b-aee5-de6b8274206b"
+  }
 }

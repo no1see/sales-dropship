@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div>
+        <a routerLink="/home">AdmHome</a>
+    </div>
+    <!-- <div fxLayoutAlign="end">
+        <label id="switch" class="switch">
+            <input type="checkbox" (change)="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div> -->
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <label id="switch" class="switch">
+                    <input type="checkbox" (change)="toggleTheme()" id="slider">
+                    <span class="slider round"></span>
+                </label>
+            </li>
+            <li>
+                <a routerLink="/admin/dashboard">dashboard</a>
+            </li>
+            <li>
+                <a routerLink="/admin/categories">categories</a>
+            </li>
+            <li>
+                <a routerLink="/admin/goods">goods</a>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>

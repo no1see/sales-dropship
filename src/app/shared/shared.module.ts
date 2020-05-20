@@ -5,23 +5,26 @@ import { AngularMaterialModule } from '../material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
 import { SuccessDialogComponent } from './dialogs/success-dialog/success-dialog.component';
+import { LayoutComponent } from '../layout/layout.component';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     SuccessDialogComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    LayoutComponent
   ],
   imports: [
     CommonModule,
     AngularMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   exports: [
     AngularMaterialModule,
     FlexLayoutModule,
     SuccessDialogComponent,
-    ErrorDialogComponent
+    ErrorDialogComponent,
+    LayoutComponent
   ],
   entryComponents: [
     SuccessDialogComponent,

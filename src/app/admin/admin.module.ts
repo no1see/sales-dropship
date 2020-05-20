@@ -9,6 +9,9 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CreateOrEditCategoryComponent } from './categories/create-or-edit-category/create-or-edit-category.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './admin.component';
+import { AdminHeaderComponent } from './navigation/admin-header/admin-header.component';
+import { AdminSidebarComponent } from './navigation/admin-sidebar/admin-sidebar.component';
 
 
 
@@ -18,7 +21,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     CategoriesComponent,
     GoodsComponent,
-    CreateOrEditCategoryComponent
+    CreateOrEditCategoryComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent
   ],
   imports: [
     ngCommon.CommonModule,
