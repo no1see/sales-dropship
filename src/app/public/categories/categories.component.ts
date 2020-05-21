@@ -1,65 +1,69 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { filter } from 'rxjs/operators';
+import { MatGridList } from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent implements OnInit, AfterContentInit {
+  @ViewChild('mainCategoryGrid', {static: false}) mainCategoryGrid: MatGridList;
+
+  gridByBreakpoint = {
+    xl: 4,
+    lg: 4,
+    md: 3,
+    sm: 2,
+    xs: 1
+  }
+
+  categoryFilterText: string = '';
+  categoryNavFilterText: string = '';
   public categorySelected: boolean = false;
-  categoryList: Category[] = [
-    {
-      id: 0,
-      name: 'category1',
-      displayName: 'Category 1'
-    },
-    {
-      id: 1,
-      name: 'category2',
-      displayName: 'Category 2'
-    },
-    {
-      id: 2,
-      name: 'category3',
-      displayName: 'Category 3'
-    },
-    {
-      id: 3,
-      name: 'category4',
-      displayName: 'Category 4'
-    }
-  ];
+  categoryList: Category[] = [];
 
   menu: NavItem [] = [
     {
-      displayName: 'Cat1',
+      displayName: 'Держаки',
       iconName: 'desktop_windows',
-      route: 'category1',
+      children: [
+        {
+          displayName: 'Од лопат',
+          iconName: 'search',
+          route: 'category5'
+        },
+        {
+          displayName: 'Од грабліууу',
+          iconName: 'search',
+          route: 'category5'
+        }
+      ]
     },        
     {
-      displayName: 'Category 2',
+      displayName: 'Посуд',
       iconName: 'ballot',
       children: [
         {
-          displayName: 'sub cat of 2 - 1',
+          displayName: 'Чашки',
           iconName: 'search',
           route: 'category2'
         },
         {
-          displayName: 'sub cat of 2 - 1',
+          displayName: 'Тарілки',
           iconName: 'search',
           route: 'category2'
         }
       ]
     },
     {
-      displayName: 'sub cat 2.1',
+      displayName: 'Текстиль',
       iconName: 'group',
       children: [
           {
-            displayName: 'sub cat of 2 - 1',
+            displayName: 'Тканина',
             iconName: 'search',
             route: 'category3'
           }
@@ -68,7 +72,8 @@ export class CategoriesComponent implements OnInit {
   ];
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private mediaObserver: MediaObserver
   ) {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd))
     .subscribe(({url}: NavigationEnd) => {
@@ -77,22 +82,100 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getCategoryItems();
     // console.log(this.activatedRoute);
     // this.categorySelected = this.activatedRoute.children.length ? true : false;
+  }
+
+  ngAfterContentInit() {
+    if (this.mainCategoryGrid) {
+      this.mediaObserver.media$.subscribe((change: MediaChange) => {
+        this.mainCategoryGrid.cols = this.gridByBreakpoint[change.mqAlias];
+      });
+    }
   }
 
   redirectToCategory = (item) => {
     this.categorySelected = true;
     this.router.navigate(['categories', item]);
+  }
 
+  getCategoryItems() {
+    this.categoryList = [
+      {
+        id: 1,
+        description: 'desctiption cat1',
+        title: 'A natural view',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg',
+        route: 'category1'
+      },
+      {
+        id: 2,
+        description: 'desctiption cat2',
+        title: 'Newspaper',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg',
+        route: 'category2'
+      },
+      {
+        id: 3,
+        description: 'desctiption cat3',
+        title: 'Favourite pizza',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg',
+        route: 'category3'
+      },
+      {
+        id: 4,
+        description: 'desctiption cat4',
+        title: 'Abstract design',
+        img: 'https://placekitten.com/300/200',
+        route: 'category4'
+      },
+      {
+        id: 5,
+        description: 'desctiption cat5',
+        title: 'Tech',
+        img: 'https://placekitten.com/300/200',
+        route: 'category5'
+      },
+      {
+        id: 6,
+        description: 'desctiption cat6',
+        title: 'Nightlife',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg',
+        route: 'category6'
+      },
+      {
+        id: 7,
+        title: 'Nightlife',
+        description: 'desctiption cat7',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg',
+        route: 'category7'
+      },
+      {
+        id: 8,
+        title: 'Nightlife',
+        description: 'desctiption cat8',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg',
+        route: 'category8'
+      },
+      {
+        id: 9,
+        title: 'Nightlife',
+        description: 'desctiption cat9',
+        img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg',
+        route: 'category9'
+      }
+    ]
   }
 
 }
 
 export interface Category {
   id: number,
-  name: string,
-  displayName: string
+  title: string,
+  description: string,
+  img: string,
+  route: string
 }
 
 export interface NavItem {

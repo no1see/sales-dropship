@@ -6,13 +6,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ErrorDialogComponent } from './dialogs/error-dialog/error-dialog.component';
 import { SuccessDialogComponent } from './dialogs/success-dialog/success-dialog.component';
 import { LayoutComponent } from '../layout/layout.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { NestedSearchPipe } from './pipes/nested-search.pipe';
 
 @NgModule({
   declarations: [
     NotFoundComponent,
     SuccessDialogComponent,
     ErrorDialogComponent,
-    LayoutComponent
+    LayoutComponent,
+    SearchPipe,
+    NestedSearchPipe
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,9 @@ import { LayoutComponent } from '../layout/layout.component';
     FlexLayoutModule,
     SuccessDialogComponent,
     ErrorDialogComponent,
-    LayoutComponent
+    LayoutComponent,
+    SearchPipe,
+    NestedSearchPipe
   ],
   entryComponents: [
     SuccessDialogComponent,

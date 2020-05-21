@@ -3,7 +3,7 @@
     <mat-sidenav #sidenav role="navigation">
       <app-sidebar (sidenavClose)="sidenav.close()" (themeChanged)="changeTheme()"></app-sidebar>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content style="overflow:hidden !important">
       <app-header (sidenavToggle)="sidenav.toggle()" (themeChanged)="changeTheme()"></app-header>
       <span class="layout-spacer"></span>
       <main>

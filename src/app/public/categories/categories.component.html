@@ -1,8 +1,13 @@
 <div fxLayout="row wrap" fxLayoutAlign="start start" class="category--wrapper">
     <div fxFlex="20%" fxFlex.lt-md="100%" class="category-flex--wrapper">
         <div class="category-list--wrapper">
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                <mat-form-field class="category-nav--search">
+                    <input matInput placeholder="Search"  [(ngModel)]="categoryNavFilterText">
+                </mat-form-field>
+            </div>
             <mat-nav-list>
-                <span *ngFor="let item of menu">
+                <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
                     <span *ngIf="item.children && item.children.length > 0">
                         <mat-accordion>
                             <mat-expansion-panel>
@@ -38,7 +43,7 @@
             </mat-nav-list>
         </div>
     </div>
-    <div fxFlex="80%" fxFlex.lt-md="100%" class="category-flex--wrapper">
+    <div fxFlex="80%" fxFlex.lt-md="100%" fxLayout="column" class="category-flex--wrapper">
         <!-- <app-products >
         </app-products> -->
         
@@ -49,103 +54,56 @@
                     Всі категорії
                 </p>
             </div>
-            <mat-grid-list cols="4" rowHeight="1:1">
-                <mat-grid-tile>
-                    <mat-card class="example-card">
-                        <div class="img-wrapper">
-                            <img mat-card-image
-                                src="https://kot.sh/sites/default/files/styles/large/public/articles-image/18-prost-cup-preview.jpg?itok=2ZdnvAMk"
-                                alt="Photo of a Shiba Inu">
-                        </div>
-                        <mat-card-content>
-                            <p>
-                                Description category 1
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button>
-                                <a [routerLink]="['/categories/category1']" routerLinkActive="router-link-active">View</a>
-                            </button>
-                        </mat-card-actions>
+            <!-- <mat-card class="example-card">
+                <div class="img-wrapper">
+                    <img mat-card-image
+                        src="https://placekitten.com/300/250"
+                        alt="Photo of a Shiba Inu">
+                </div>
+                <mat-card-content>
+                    <p>
+                        Description category 1
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>
+                        <a [routerLink]="['/categories/category1']" routerLinkActive="router-link-active">View</a>
+                    </button>
+                </mat-card-actions>
+            </mat-card> -->
+            <div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 100vh">
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
+                    <mat-form-field class="category-main--search">
+                        <input matInput placeholder="Search"  [(ngModel)]="categoryFilterText">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row wrap">
+                  <!-- loop over the cardList and show the cards -->
+                  <div
+                    *ngFor="let card of categoryList | search: 'title':categoryFilterText"
+                    fxFlex="25"
+                    fxFlex.md="33"
+                    fxFlex.sm="50"
+                    fxFlex.xs="100"
+                    fxLayout="column"
+                    style="padding: 5px;">
+                    <!-- cards here -->
+                    <mat-card class="mat-elevation-z1">
+                      <img mat-card-image [src]="card.img" />
+                      <mat-card-title> {{ card.title }} </mat-card-title>
+                      <mat-card-content> {{ card.description }} </mat-card-content>
+                      <mat-card-footer>
+                        <button fxFlex mat-flat-button color="primary" (click)="redirectToCategory(card.route)">
+                            <!-- <a [routerLink]="['/categories/category1']" routerLinkActive="router-link-active">
+                                View
+                            </a> -->
+                          Переглянути категорію {{card.title}}
+                        </button>
+                      </mat-card-footer>
                     </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-card class="example-card">
-                        <div class="img-wrapper">
-                            <img mat-card-image
-                                src="https://kot.sh/sites/default/files/styles/large/public/articles-image/18-prost-cup-preview.jpg?itok=2ZdnvAMk"
-                                alt="Photo of a Shiba Inu">
-                        </div>
-                        <mat-card-content>
-                            <p>
-                                Description category 2
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button>
-                                <a [routerLink]="['/categories/category2']" routerLinkActive="router-link-active">View</a>
-                            </button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-card class="example-card">
-                        <div class="img-wrapper">
-                            <img mat-card-image
-                                src="https://kot.sh/sites/default/files/styles/large/public/articles-image/18-prost-cup-preview.jpg?itok=2ZdnvAMk"
-                                alt="Photo of a Shiba Inu">
-                        </div>
-                        <mat-card-content>
-                            <p>
-                                Description category 3
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button>
-                                <a [routerLink]="['/categories/category3']" routerLinkActive="router-link-active">View</a>
-                            </button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-card class="example-card">
-                        <div class="img-wrapper">
-                            <img mat-card-image
-                                src="https://kot.sh/sites/default/files/styles/large/public/articles-image/18-prost-cup-preview.jpg?itok=2ZdnvAMk"
-                                alt="Photo of a Shiba Inu">
-                        </div>
-                        <mat-card-content>
-                            <p>
-                                Description category 4
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button>
-                                <a [routerLink]="['/categories/category4']" routerLinkActive="router-link-active">View</a>
-                            </button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                    <mat-card class="example-card">
-                        <div class="img-wrapper">
-                            <img mat-card-image
-                                src="https://kot.sh/sites/default/files/styles/large/public/articles-image/18-prost-cup-preview.jpg?itok=2ZdnvAMk"
-                                alt="Photo of a Shiba Inu">
-                        </div>
-                        <mat-card-content>
-                            <p>
-                                Description category 5
-                            </p>
-                        </mat-card-content>
-                        <mat-card-actions>
-                            <button mat-button>
-                                <a [routerLink]="['/categories/category5']" routerLinkActive="router-link-active">View</a>
-                            </button>
-                        </mat-card-actions>
-                    </mat-card>
-                </mat-grid-tile>
-            </mat-grid-list>
+                  </div>
+                </div>
+              </div>
         </ng-container>
         
         <router-outlet></router-outlet>

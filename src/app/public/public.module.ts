@@ -5,7 +5,7 @@ import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { PublicRoutingModule } from './public-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import * as ngCommon from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 import { PublicComponent } from './public.component';
@@ -33,7 +33,8 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     CommonModule,
     PublicRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ]
 })
 export class PublicModule { }

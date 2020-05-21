@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PublicComponent } from './public/public.component';
 import { PublicModule } from './public/public.module';
 import { AdminModule } from './admin/admin.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AdminModule } from './admin/admin.module';
     SharedModule,
     BrowserAnimationsModule,
     PublicModule,
-    AdminModule
+    AdminModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
