@@ -10,7 +10,9 @@ export class CategoryDetailComponent implements OnInit {
   public category: string;
   constructor(
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.route.params.subscribe(params => this.getCategoryDetails());
+  }
 
   ngOnInit(): void {
     this.getCategoryDetails();

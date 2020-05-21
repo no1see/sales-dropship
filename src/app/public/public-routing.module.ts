@@ -13,8 +13,14 @@ const routes: Routes = [
     path: '', children: [
       { path: '', component: HomeComponent},
       { path: 'products', component: ProductsComponent },
-      { path: 'categories', component: CategoriesComponent },
-      { path: 'categories/:category', component: CategoryDetailComponent },
+      { path: 'categories', component: CategoriesComponent, children:
+        [
+          {
+            path: ':category', component: CategoryDetailComponent
+          }
+        ]
+      },
+      // { path: 'categories/:category', component: CategoryDetailComponent },
       { path: 'about', component: AboutComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent }
     ]

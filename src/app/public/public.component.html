@@ -5,6 +5,7 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <app-header (sidenavToggle)="sidenav.toggle()" (themeChanged)="changeTheme()"></app-header>
+      <span class="layout-spacer"></span>
       <main>
         <router-outlet></router-outlet>
       </main>

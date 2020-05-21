@@ -24,3 +24,11 @@ mat-grid-tile {
     display: flex;
     justify-content: center;
 }
+
+.category-header {
+    margin-top: 2rem;
+    .category-header--name {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+}
