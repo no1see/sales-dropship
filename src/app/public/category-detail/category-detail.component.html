@@ -1,5 +1,9 @@
 
 <div fxLayout="row wrap" fxLayoutAlign="start start" class="layout-wrapper">
+    <a fxLayout="row" (click)="backToCategories()">
+      <mat-icon>keyboard_backspace</mat-icon>
+      всі категорії
+    </a>
     <div fxFlex="100%" fxLayout="row" fxLayoutAlign="center center" class="category-header">
         <p class="category-header--name">
             {{category}}

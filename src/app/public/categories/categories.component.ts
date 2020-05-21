@@ -41,7 +41,18 @@ export class CategoriesComponent implements OnInit, AfterContentInit {
           route: 'category5'
         }
       ]
-    },        
+    },
+    {
+      displayName: 'Дуже довга назва категорії для тесту',
+      iconName: 'desktop_windows',
+      children: [
+        {
+          displayName: 'Тканина',
+          iconName: 'search',
+          route: 'category3'
+        }
+      ]
+    },     
     {
       displayName: 'Посуд',
       iconName: 'ballot',
@@ -99,6 +110,7 @@ export class CategoriesComponent implements OnInit, AfterContentInit {
     this.categorySelected = true;
     this.router.navigate(['categories', item]);
   }
+  
 
   getCategoryItems() {
     this.categoryList = [

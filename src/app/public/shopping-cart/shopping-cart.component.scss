@@ -1,0 +1,18 @@
+.shopping-cart--wrapper {
+    padding: 16px 25px;
+}
+
+.form--wrapper,
+.order-list--wrapper {
+    margin: 20px 0;
+}
+
+.contact-form {
+    ::ng-deep .mat-form-field-flex {
+        border-radius: 4px;
+        // background: #fff;
+        padding: .35rem;
+        // box-shadow: 2px 2px 2px 0px inset rgba(0, 0, 0, 0.2),
+        //             4px 5px 2px 0px inset rgba(0, 0, 0, 0.2);
+    }
+}

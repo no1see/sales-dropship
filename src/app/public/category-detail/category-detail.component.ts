@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, AfterContentInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatGridList } from '@angular/material/grid-list';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-category-detail',
@@ -24,7 +25,8 @@ export class CategoryDetailComponent implements OnInit, AfterContentInit {
   public category: string;
   constructor(
     private route: ActivatedRoute,
-    private mediaObserver: MediaObserver
+    private mediaObserver: MediaObserver,
+    private router: Router
   ) {
     this.route.params.subscribe(params => this.getCategoryDetails());
   }
@@ -93,6 +95,10 @@ export class CategoryDetailComponent implements OnInit, AfterContentInit {
         img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg'
       }
     ]
+  }
+
+  backToCategories() {
+    this.router.navigate(['categories']);
   }
 
 }

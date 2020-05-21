@@ -4,11 +4,19 @@
 
 .category-flex--wrapper {
     height: 100%;
-    overflow-y: auto;
+    // overflow-y: auto;
 }
 
 .category-list--wrapper {
     padding: 8px 16px;
+}
+@media screen and (min-width: 960px) {
+    .category-list--wrapper {
+        padding: 8px 16px;
+        position: fixed;
+        min-width: 16%;
+        max-width: 18%;
+    }
 }
 
 .example-card {
@@ -45,3 +53,4 @@
 .category-nav--search {
     width: 100%;
 }
+

@@ -1,46 +1,87 @@
+<mat-sidenav #categorySidenav position="end">
+    <mat-nav-list>
+        <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
+            <span *ngIf="item.children && item.children.length > 0">
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
+                                    {{item.displayName}}
+                                </div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <span *ngFor="let child of item.children">
+                            <!-- <mat-list-item (click)="redirectToCategory(child.route)"> -->
+                            <mat-list-item [routerLink]="['/categories/', child.route]" (click)="categorySidenav.close()">
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <!-- <mat-icon>{{child.iconName}}</mat-icon> -->
+                                    {{child.displayName}}
+                                </div>
+                            </mat-list-item>
+                        </span>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </span>
+            <span *ngIf="!item.children || item.children.length === 0">
+                <!-- <mat-list-item (click)="redirectToCategory(item.route)"> -->
+                    <mat-list-item [routerLink]="['/categories/', item.route]" (click)="categorySidenav.close()">
+                    <!-- Entradas principales -->
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
+                        {{item.displayName}}
+                    </div>
+                </mat-list-item>
+            </span>
+        </span>
+    </mat-nav-list>
+</mat-sidenav>
 <div fxLayout="row wrap" fxLayoutAlign="start start" class="category--wrapper">
     <div fxFlex="20%" fxFlex.lt-md="100%" class="category-flex--wrapper">
         <div class="category-list--wrapper">
-            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px">
-                <mat-form-field class="category-nav--search">
-                    <input matInput placeholder="Search"  [(ngModel)]="categoryNavFilterText">
-                </mat-form-field>
+            <div class="category-list">
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" fxHide.xs>
+                    <mat-form-field class="category-nav--search">
+                        <input matInput placeholder="Search"  [(ngModel)]="categoryNavFilterText">
+                    </mat-form-field>
+                </div>
+                <mat-nav-list fxHide.xs>
+                    <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
+                        <span *ngIf="item.children && item.children.length > 0">
+                            <mat-accordion>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                                <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
+                                                {{item.displayName}}
+                                            </div>
+                                        </mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <span *ngFor="let child of item.children">
+                                        <mat-list-item (click)="redirectToCategory(child.route)">
+                                            <div fxLayout="row" fxLayoutAlign="space-between center">
+                                                <!-- <mat-icon>{{child.iconName}}</mat-icon> -->
+                                                {{child.displayName}}
+                                            </div>
+                                        </mat-list-item>
+                                    </span>
+                                </mat-expansion-panel>
+                            </mat-accordion>
+                        </span>
+                        <span *ngIf="!item.children || item.children.length === 0">
+                            <mat-list-item (click)="redirectToCategory(item.route)">
+                                <!-- Entradas principales -->
+                                <div fxLayout="row" fxLayoutAlign="space-between center">
+                                    <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
+                                    {{item.displayName}}
+                                </div>
+                            </mat-list-item>
+                        </span>
+                    </span>
+                </mat-nav-list>
             </div>
-            <mat-nav-list>
-                <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
-                    <span *ngIf="item.children && item.children.length > 0">
-                        <mat-accordion>
-                            <mat-expansion-panel>
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title>
-                                        <div fxLayout="row" fxLayoutAlign="space-between center">
-                                            <mat-icon>{{item.iconName}}</mat-icon>
-                                            {{item.displayName}}
-                                        </div>
-                                    </mat-panel-title>
-                                </mat-expansion-panel-header>
-                                <span *ngFor="let child of item.children">
-                                    <mat-list-item (click)="redirectToCategory(child.route)">
-                                        <div fxLayout="row" fxLayoutAlign="space-between center">
-                                            <mat-icon>{{child.iconName}}</mat-icon>
-                                            {{child.displayName}}
-                                        </div>
-                                    </mat-list-item>
-                                </span>
-                            </mat-expansion-panel>
-                        </mat-accordion>
-                    </span>
-                    <span *ngIf="!item.children || item.children.length === 0">
-                        <mat-list-item (click)="redirectToCategory(item.route)">
-                            <!-- Entradas principales -->
-                            <div fxLayout="row" fxLayoutAlign="space-between center">
-                                <mat-icon>{{item.iconName}}</mat-icon>
-                                {{item.displayName}}
-                            </div>
-                        </mat-list-item>
-                    </span>
-                </span>
-            </mat-nav-list>
         </div>
     </div>
     <div fxFlex="80%" fxFlex.lt-md="100%" fxLayout="column" class="category-flex--wrapper">
@@ -49,7 +90,7 @@
         
         
         <ng-container *ngIf="!categorySelected">
-            <div class="category-header">
+            <div class="category-header" >
                 <p class="category-header--name">
                     Всі категорії
                 </p>
@@ -76,10 +117,15 @@
                     <mat-form-field class="category-main--search">
                         <input matInput placeholder="Search"  [(ngModel)]="categoryFilterText">
                     </mat-form-field>
+                    <div class="filter-category" fxHide.gt-xs>
+                        <button mat-icon-button (click)="categorySidenav.toggle()" fxShow="true" >
+                            <mat-icon>filter_list</mat-icon>
+                            </button>
+                    </div>
                 </div>
                 <div fxLayout="row wrap">
-                  <!-- loop over the cardList and show the cards -->
-                  <div
+                    <!-- loop over the cardList and show the cards -->
+                    <div
                     *ngFor="let card of categoryList | search: 'title':categoryFilterText"
                     fxFlex="25"
                     fxFlex.md="33"
@@ -89,23 +135,22 @@
                     style="padding: 5px;">
                     <!-- cards here -->
                     <mat-card class="mat-elevation-z1">
-                      <img mat-card-image [src]="card.img" />
-                      <mat-card-title> {{ card.title }} </mat-card-title>
-                      <mat-card-content> {{ card.description }} </mat-card-content>
-                      <mat-card-footer>
+                        <img mat-card-image [src]="card.img" />
+                        <mat-card-title> {{ card.title }} </mat-card-title>
+                        <mat-card-content> {{ card.description }} </mat-card-content>
+                        <mat-card-footer>
                         <button fxFlex mat-flat-button color="primary" (click)="redirectToCategory(card.route)">
                             <!-- <a [routerLink]="['/categories/category1']" routerLinkActive="router-link-active">
                                 View
                             </a> -->
-                          Переглянути категорію {{card.title}}
+                            Переглянути категорію {{card.title}}
                         </button>
-                      </mat-card-footer>
+                        </mat-card-footer>
                     </mat-card>
-                  </div>
+                    </div>
                 </div>
-              </div>
+                </div>
         </ng-container>
-        
         <router-outlet></router-outlet>
     </div>
 </div>

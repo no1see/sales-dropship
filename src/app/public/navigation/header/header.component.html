@@ -1,13 +1,18 @@
 <mat-toolbar class="main-topbar">
     <mat-toolbar-row class="toolbar--top mat-elevation-z6">
-        <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-around center" fxLayoutGap="5px">
+        <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-around center" fxLayoutAlign.xs="start center" fxLayoutGap="5px">
             
             <div fxLayout="row" fxFlex="10%" fxLayoutAlign="start start">
+                <div fxHide.gt-xs>
+                    <button mat-icon-button class="burger-icon" (click)="onToggleSidenav()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
                 <a class="topbar--item button fancy-button" routerLink="">
                     <img src="../../../../assets/images/logo.svg" height="32px" alt="Logo">
                 </a>
             </div>
-            <div fxFlex fxLayout fxLayoutAlign="center center" fxHide.xs>
+            <div fxFlex fxLayout fxLayoutAlign="center center">
                 <ul fxLayout fxLayoutGap="15px" class="topbar-items">
                     <!-- <li> -->
                         
@@ -26,8 +31,8 @@
                         <!-- </li> -->
                 </ul>
             </div>
-            <div fxLayout="row" fxFlex="10%" fxLayoutAlign="end" fxLayoutGap="25px">
-                <span fxLayout="row" fxLayoutAlign="center center">
+            <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="25px">
+                <span fxLayout="row" fxLayoutAlign="center center" fxHide.xs>
                     <label id="switch" class="switch">
                         <input type="checkbox" (change)="toggleTheme()" id="slider">
                         <span class="slider round"></span>
@@ -35,17 +40,19 @@
                 </span>
                 <a class="topbar--item button fancy-button" routerLink="/shopping-cart">
                     <i class="material-icons">shopping_cart</i>
-                    Checkout
+                    <span fxHide.xs>
+                        Checkout
+                    </span>
                 </a>
             </div>
         </div>
     </mat-toolbar-row>
-    <mat-toolbar-row class="toolbar--second mat-elevation-z4">
-        <div fxHide.gt-xs>
+    <mat-toolbar-row class="toolbar--second mat-elevation-z4" fxHide.xs>
+        <!-- <div fxHide.gt-xs>
             <button mat-icon-button (click)="onToggleSidenav()">
                 <mat-icon>menu</mat-icon>
             </button>
-        </div>
+        </div> -->
         <!-- <div>
             <a class="header-nav--item" routerLink="">Home</a>
         </div> -->
