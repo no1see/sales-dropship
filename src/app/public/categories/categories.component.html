@@ -1,4 +1,4 @@
-<mat-sidenav #categorySidenav position="end">
+<!-- <mat-sidenav #categorySidenav position="end" mode="side" class="side-filter">
     <mat-nav-list>
         <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
             <span *ngIf="item.children && item.children.length > 0">
@@ -7,16 +7,13 @@
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <div fxLayout="row" fxLayoutAlign="space-between center">
-                                    <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
                                     {{item.displayName}}
                                 </div>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
                         <span *ngFor="let child of item.children">
-                            <!-- <mat-list-item (click)="redirectToCategory(child.route)"> -->
                             <mat-list-item [routerLink]="['/categories/', child.route]" (click)="categorySidenav.close()">
                                 <div fxLayout="row" fxLayoutAlign="space-between center">
-                                    <!-- <mat-icon>{{child.iconName}}</mat-icon> -->
                                     {{child.displayName}}
                                 </div>
                             </mat-list-item>
@@ -25,28 +22,25 @@
                 </mat-accordion>
             </span>
             <span *ngIf="!item.children || item.children.length === 0">
-                <!-- <mat-list-item (click)="redirectToCategory(item.route)"> -->
                     <mat-list-item [routerLink]="['/categories/', item.route]" (click)="categorySidenav.close()">
-                    <!-- Entradas principales -->
                     <div fxLayout="row" fxLayoutAlign="space-between center">
-                        <!-- <mat-icon>{{item.iconName}}</mat-icon> -->
                         {{item.displayName}}
                     </div>
                 </mat-list-item>
             </span>
         </span>
     </mat-nav-list>
-</mat-sidenav>
-<div fxLayout="row wrap" fxLayoutAlign="start start" class="category--wrapper">
+</mat-sidenav> -->
+<div fxLayout="row wrap" fxLayoutAlign="start start" class="category--wrapper" >
     <div fxFlex="20%" fxFlex.lt-md="100%" class="category-flex--wrapper">
-        <div class="category-list--wrapper">
+        <div class="category-list--wrapper" fxHide.xs>
             <div class="category-list">
-                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" fxHide.xs>
+                <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px" >
                     <mat-form-field class="category-nav--search">
                         <input matInput placeholder="Search"  [(ngModel)]="categoryNavFilterText">
                     </mat-form-field>
                 </div>
-                <mat-nav-list fxHide.xs>
+                <mat-nav-list >
                     <span *ngFor="let item of menu | searchNested: categoryNavFilterText">
                         <span *ngIf="item.children && item.children.length > 0">
                             <mat-accordion>
@@ -118,11 +112,13 @@
                         <input matInput placeholder="Search"  [(ngModel)]="categoryFilterText">
                     </mat-form-field>
                     <div class="filter-category" fxHide.gt-xs>
-                        <button mat-icon-button (click)="categorySidenav.toggle()" fxShow="true" >
+                        <button mat-icon-button fxShow="true" (click)="showFilter = !showFilter">
                             <mat-icon>filter_list</mat-icon>
-                            </button>
+                        </button>
                     </div>
                 </div>
+                <app-category-filter *ngIf="showFilter" [menu]="menu">
+                </app-category-filter>
                 <div fxLayout="row wrap">
                     <!-- loop over the cardList and show the cards -->
                     <div

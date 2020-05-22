@@ -11,7 +11,7 @@ import { MatGridList } from '@angular/material/grid-list';
 })
 export class CategoriesComponent implements OnInit, AfterContentInit {
   @ViewChild('mainCategoryGrid', {static: false}) mainCategoryGrid: MatGridList;
-
+  showFilter: boolean = false;
   gridByBreakpoint = {
     xl: 4,
     lg: 4,

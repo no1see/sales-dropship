@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { CategoryFilterComponent } from './categories/category-filter/category-filter.component';
 
 
 
@@ -26,7 +27,8 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     AboutComponent,
     ShoppingCartComponent,
     CategoriesComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    CategoryFilterComponent
   ],
   imports: [
     ngCommon.CommonModule,
