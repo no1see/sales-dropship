@@ -1,4 +1,9 @@
+<!-- <p>{{routeToCategory(product.category)}}</p> -->
+<button mat-icon-button (click)="routeToCategory(product.category)">
+    <mat-icon>keyboard_backspace</mat-icon>
+    Переглянути категорію
+</button>
 <p>{{product.title}}</p>
-<img src="{{product.img}}" alt="{{product.title}}">
+<img src="{{product.img}}" alt="{{product.title}}" class="responsive-img">
 <app-related-products [(relatedProducts)]="relatedProducts">
 </app-related-products>

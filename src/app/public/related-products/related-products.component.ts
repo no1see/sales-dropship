@@ -53,5 +53,14 @@ export interface CategoryItem {
   id: number,
   title: string,
   description: string,
-  img: string
+  img: string,
+  category: Category
+}
+
+export interface Category {
+  id: number,
+  title: string,
+  description: string,
+  img: string,
+  route: string
 }
