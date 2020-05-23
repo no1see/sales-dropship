@@ -1,0 +1,10 @@
+.related-good--item {
+    max-width: 250px;
+    img {
+    }
+}
+
+::ng-deep .owl-carousel .owl-item {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,30 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="15px">
+    <div fxFlex="60%">
+        <p style="text-align: center;">Схожі товари</p>
+    </div>
+    <div fxFlex="60%">
+        <div>
+            <owl-carousel-o [options]="customOptions">
+                <ng-container *ngFor="let slide of relatedProducts">
+                <ng-template carouselSlide [id]="slide.id">
+                    <!-- <img [src]="slide.img" [alt]="slide.title" [title]="slide.title"> -->
+                    <mat-card class="mat-elevation-z6 related-good--item">
+                        <img mat-card-image [src]="slide.img" />
+                        <mat-card-title> Назва: {{ slide.description }} </mat-card-title>
+                        <mat-card-content> Категорія: {{ slide.title }} </mat-card-content>
+                        <mat-card-footer>
+                        <button fxFlex mat-flat-button color="primary" (click)="showGood(slide)">
+                            Переглянути товар
+                            {{slide.description}}
+                        </button>
+                        </mat-card-footer>
+                    </mat-card>
+                </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+        <!-- <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="15px"> -->
+        <!-- </div> -->
+    </div>
+</div>
+<div>Some tags after</div>

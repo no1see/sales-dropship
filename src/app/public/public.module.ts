@@ -14,7 +14,9 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { CategoryFilterComponent } from './categories/category-filter/category-filter.component';
-
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { RelatedProductsComponent } from './related-products/related-products.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { CategoryFilterComponent } from './categories/category-filter/category-f
     ShoppingCartComponent,
     CategoriesComponent,
     CategoryDetailComponent,
-    CategoryFilterComponent
+    CategoryFilterComponent,
+    ProductDetailsComponent,
+    RelatedProductsComponent
   ],
   imports: [
     ngCommon.CommonModule,
@@ -36,7 +40,8 @@ import { CategoryFilterComponent } from './categories/category-filter/category-f
     PublicRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    CarouselModule
   ]
 })
 export class PublicModule { }

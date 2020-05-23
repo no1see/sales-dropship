@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,9 @@ const routes: Routes = [
             path: ':category', component: CategoryDetailComponent
           }
         ]
+      },
+      {
+        path: 'products/:id', component: ProductDetailsComponent
       },
       // { path: 'categories/:category', component: CategoryDetailComponent },
       { path: 'about', component: AboutComponent },

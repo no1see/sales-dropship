@@ -28,8 +28,8 @@
                   <mat-card-title> {{ card.title }} </mat-card-title>
                   <mat-card-content> {{ card.title }} </mat-card-content>
                   <mat-card-footer>
-                    <button fxFlex mat-flat-button color="primary">
-                      Do Something Button
+                    <button fxFlex mat-flat-button color="primary" (click)="showGood(card)">
+                      Переглянути товар {{card.title}}
                     </button>
                   </mat-card-footer>
                 </mat-card>
