@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
 import { AdminHeaderComponent } from './navigation/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './navigation/admin-sidebar/admin-sidebar.component';
+import { CreateOrEditCategoryGood } from './goods/create-or-edit-good/create-or-edit-good.component';
 
 
 
@@ -22,6 +23,7 @@ import { AdminSidebarComponent } from './navigation/admin-sidebar/admin-sidebar.
     CategoriesComponent,
     GoodsComponent,
     CreateOrEditCategoryComponent,
+    CreateOrEditCategoryGood,
     AdminComponent,
     AdminHeaderComponent,
     AdminSidebarComponent
@@ -34,7 +36,8 @@ import { AdminSidebarComponent } from './navigation/admin-sidebar/admin-sidebar.
     SharedModule
   ],
   entryComponents: [
-    CreateOrEditCategoryComponent
+    CreateOrEditCategoryComponent,
+    CreateOrEditCategoryGood
   ]
 })
 export class AdminModule { }

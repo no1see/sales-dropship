@@ -7,6 +7,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import {DeliveryComponent} from './delivery/delivery.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
       },
       // { path: 'categories/:category', component: CategoryDetailComponent },
       { path: 'about', component: AboutComponent },
+      { path: 'delivery', component: DeliveryComponent },
       { path: 'shopping-cart', component: ShoppingCartComponent }
     ]
   }

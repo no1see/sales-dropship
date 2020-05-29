@@ -17,6 +17,8 @@ import { CategoryFilterComponent } from './categories/category-filter/category-f
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RelatedProductsComponent } from './related-products/related-products.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     CategoryDetailComponent,
     CategoryFilterComponent,
     ProductDetailsComponent,
-    RelatedProductsComponent
+    RelatedProductsComponent,
+    DeliveryComponent,
+    FooterComponent
   ],
   imports: [
     ngCommon.CommonModule,

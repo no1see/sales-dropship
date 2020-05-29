@@ -1,7 +1,7 @@
 <mat-toolbar class="main-topbar">
     <mat-toolbar-row class="toolbar--top mat-elevation-z6">
         <div fxLayout="row" fxFlex="100%" fxLayoutAlign="space-around center" fxLayoutAlign.xs="start center" fxLayoutGap="5px">
-            
+
             <div fxLayout="row" fxFlex="10%" fxLayoutAlign="start start">
                 <div fxHide.gt-xs>
                     <button mat-icon-button class="burger-icon" (click)="onToggleSidenav()">
@@ -15,11 +15,11 @@
             <div fxFlex fxLayout fxLayoutAlign="center center">
                 <ul fxLayout fxLayoutGap="15px" class="topbar-items">
                     <!-- <li> -->
-                        
+
                     <!-- </li> -->
                     <li class="topbar-phone">
                         <mat-icon>phone</mat-icon>
-                        <a href="tel:+380931129028">+380931129028</a>
+                        <a href="tel:+380931129028"></a>
                     </li>
                     <!-- <li>
                         <label id="switch" class="switch">
@@ -75,7 +75,7 @@
                     <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
                         <mat-icon>menu</mat-icon>
                     </button>
-                    <mat-menu #menu="matMenu"> 
+                    <mat-menu #menu="matMenu">
                         <button mat-menu-item  *ngFor="let category of categoryList" (click)="redirectToCategory(category.name)">
                             <a>
                                 {{category.displayName}}
@@ -96,7 +96,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="header-nav--item" routerLink="/about" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="header-nav--item" routerLink="/delivery" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
                         <span class="header-nav--item__text">
                             Доставка
                         </span>
@@ -140,7 +140,7 @@
                 <button mat-icon-button [matMenuTriggerFor]="menu">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <mat-menu #menu="matMenu"> 
+                <mat-menu #menu="matMenu">
                     <button mat-menu-item  *ngFor="let category of categoryList" (click)="redirectToCategory(category.name)">
                         <a>
                             {{category.displayName}}

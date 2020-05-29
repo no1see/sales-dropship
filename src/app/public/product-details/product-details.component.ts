@@ -154,17 +154,17 @@ export class ProductDetailsComponent implements OnInit {
 }
 
 export interface CategoryItem {
-  id: number,
-  title: string,
-  description: string,
-  img: string,
-  category: Category
+  id: number;
+  title: string;
+  description: string;
+  img: string;
+  category: Category;
 }
 
 export interface Category {
-  id: number,
-  title: string,
-  description: string,
-  img: string,
-  route: string
+  id: number;
+  title: string;
+  description: string;
+  img: string;
+  route: string;
 }
